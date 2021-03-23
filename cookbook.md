@@ -58,15 +58,31 @@ fi
 ```console
 # the syntax is: SATRING =~ REGEX
 read -r -p "How old are you? " age
-if [[ ${age} =~ ^[0-9]{1,2}$ ]]; then
+if [[ "$age" =~ ^[0-9]{1,2}$ ]]; then
 	echo "your age is ${age}'
 else
 	echo "wrong age fromat"
 	exit 1
 fi
+# do the famouse yes or no check
+read -r -p "Are you sure? (Y/N) " answer
+if [[ "$answer" =~ ^[Yy][eE]?[sS]? ]]; then
+	echo "confirmed"
+else
+	echo "Aborted"
+fi
 ```
 
-6. define & use a function
+7. check if a program exist (if it exist, don't print out its path; if it doesn't exist, install it)
+
+```console
+if ! command -v awk &> /dev/null; then
+	apt update
+	apt install awk
+fi
+```
+
+8. define & use a function
 
 ```console
 # function without parameter
