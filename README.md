@@ -5,4 +5,4 @@ For that, I need to write down some notes, this repo is notes about bash scripti
 It has 2 parts:
 
 1. basic.md: basic rules and principles when writing bash scripts
-2. cookbook.md: a list of examples that details how to soleve a specific problem
+2. cookbook.md: a list of examples that details how to solve a specific problem
