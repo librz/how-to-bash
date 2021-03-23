@@ -1,4 +1,43 @@
-1. run a command, throw error when it fails
+#### check to see whether a program/command exist (if it exists, don't print out anything; if not, just exit)
+
+```console
+if ! command -v awk &> /dev/null; then 
+	echo "awk is not installed on this computer"
+	exit 1
+fi
+
+# don't use "which {program}" as shellcheck suggest
+```
+
+#### install a program, automatically answer "y" for every prompt during the install process
+
+```console
+# basic version
+yes | apt install {program}
+
+# you shouldn't use "echo y | apt install {program}" 
+# since this only prints out "y" once and there may be multiple prompts
+
+# usually you want to run "apt update" before install
+# and sometimes in script, you don't want to print out anything
+apt update &> /dev/null && yes | apt install {program} &> /dev/null
+```
+
+#### cd into the folder where the script is in, exit if it fails
+
+```console
+# I still don't understand how it works :)
+
+if ! cd "$(dirname "${BASH_SOURCE[0]}")"; then
+	echo "cd failed"
+	exit 1
+fi
+
+# this allows you to run the script from anywhere
+# it'll be as if you're running the script directly from where it's stored
+````
+
+#### run a command, throw error when it fails
 
 ```console
 if ! git fetch origin; then
@@ -7,34 +46,36 @@ if ! git fetch origin; then
 fi
 ```
 
-2. store output of a command/script in a variable, print it when it's successful, quit when it failed
+#### store output of a command/script in a variable for later use, exit if it fails
 
 ```console
-if ! result=$(bash /path/to/another/script.sh); then
+if ! result=$(bash /path/to/another/script); then
 	exit 1
 fi
 
 echo "$result"
 ```
 
-3. prompt user for input and store it in a variable
+#### prompt user for input and store it in a variable
 
 ```console
 # -p stands for prompt
 read -r -p "Do you want to continue? (Y/N) " answer
 ```
 
-4. check if string is empty or not
+#### check if string is empty or not
 
 ```console
+# you can use "-z" or "-n" to check
+
+# -z means "Empty"
 if [[ -z "$var" ]]; then
 	echo "Empty"
 else
 	echo "Not Empty"
 fi
 
-# or you could use -n
-
+# -n means "Not Empty"
 if [[ -n "$var" ]]; then
 	echo "Not Empty"
 else
@@ -42,7 +83,7 @@ else
 fi
 ```
 
-5. compare if 2 strings are the same
+#### compare if 2 strings are the same
 
 ```console
 name="John Blake"
@@ -53,7 +94,7 @@ else
 fi
 ```
 
-6. string pattern matching with regex
+#### string pattern matching with regex
 
 ```console
 # the syntax is: SATRING =~ REGEX
@@ -64,25 +105,17 @@ else
 	echo "wrong age fromat"
 	exit 1
 fi
+
 # do the famouse yes or no check
 read -r -p "Are you sure? (Y/N) " answer
 if [[ "$answer" =~ ^[Yy][eE]?[sS]? ]]; then
 	echo "confirmed"
 else
-	echo "Aborted"
+	echo "canceled"
 fi
 ```
 
-7. check if a program exist (if it exist, don't print out its path; if it doesn't exist, install it)
-
-```console
-if ! command -v awk &> /dev/null; then
-	apt update
-	apt install awk
-fi
-```
-
-8. define & use a function
+#### define & use a function
 
 ```console
 # function without parameter
