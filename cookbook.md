@@ -33,8 +33,8 @@ if ! cd "$(dirname "${BASH_SOURCE[0]}")"; then
 	exit 1
 fi
 
-# this allows you to run the script from anywhere
-# it'll be as if you're running the script directly from where it's stored
+# this allows you to run the script from elsewhere
+# as if you're running the script directly from where it's stored
 ````
 
 #### run a command, throw error when it fails
