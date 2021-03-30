@@ -94,6 +94,16 @@ else
 fi
 ```
 
+### compare if 2 numbers are equal
+
+```console
+if [[ "$age1" -eq "$age2" ]]; then
+	echo "equal"
+else
+	echo "not equal"
+fi
+```
+
 #### string pattern matching with regex
 
 ```console
