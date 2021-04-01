@@ -140,3 +140,16 @@ function hi {
 }
 hi Lisa
 ```
+
+#### write multilined text into a file
+
+```console
+# bash uses "heredoc" to represent mutlilined text
+
+cat > /path/to/file << EOF
+Hi John,
+	I'm only writing to check whether you have time this Sunday afternoon for a quick chat.
+	Hope all is well.
+Regards
+EOF
+```
