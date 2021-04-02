@@ -1,7 +1,6 @@
-#### run apt update silently
+#### run command silently(no output) 
 
 ```bash
-# &> /dev/null
 apt update &> /dev/null
 ```
 
@@ -129,6 +128,17 @@ if [[ "$answer" =~ ^[Yy][eE]?[sS]? ]]; then
 	echo "confirmed"
 else
 	echo "canceled"
+fi
+```
+
+#### do case insensitive regex match
+
+```bash
+# there's no straightforward to ignore case using "=~"
+# we'll just use grep's -i option
+read -r -p "How are you doing? " answer
+if echo "$answer" | grep -Ei 'good|ok|fine|well' >& /dev/null; then
+	echo "Good to hear"
 fi
 ```
 
