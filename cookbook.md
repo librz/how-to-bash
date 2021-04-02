@@ -18,7 +18,7 @@ fi
 
 #### install a program, automatically answer "y" for every prompt during the install process
 
-```console
+```bash
 # basic version
 yes | apt install {program}
 
@@ -32,7 +32,7 @@ apt update &> /dev/null && yes | apt install {program} &> /dev/null
 
 #### cd into the folder where the script is in, exit if it fails
 
-```console
+```bash
 # I still don't understand how it works :)
 
 if ! cd "$(dirname "${BASH_SOURCE[0]}")"; then
@@ -46,7 +46,7 @@ fi
 
 #### run a command, throw error when it fails
 
-```console
+```bash
 if ! git fetch origin; then
 	echo "failed to run git fetch, check your network connection"
 	exit 1
@@ -55,7 +55,7 @@ fi
 
 #### store output of a command/script in a variable for later use, exit if it fails
 
-```console
+```bash
 if ! result=$(bash /path/to/another/script); then
 	exit 1
 fi
@@ -65,14 +65,14 @@ echo "$result"
 
 #### prompt user for input and store it in a variable
 
-```console
+```bash
 # -p stands for prompt
 read -r -p "Do you want to continue? (Y/N) " answer
 ```
 
 #### check if string is empty or not
 
-```console
+```bash
 # you can use "-z" or "-n" to check
 
 # -z means "Empty"
@@ -92,7 +92,7 @@ fi
 
 #### compare if 2 strings are the same
 
-```console
+```bash
 name="John Blake"
 if [[ "$name" == "John Blake" ]]; then
 	echo "same"
@@ -103,7 +103,7 @@ fi
 
 ### compare if 2 numbers are equal
 
-```console
+```bash
 if [[ "$age1" -eq "$age2" ]]; then
 	echo "equal"
 else
@@ -113,7 +113,7 @@ fi
 
 #### string pattern matching with regex
 
-```console
+```bash
 # the syntax is: SATRING =~ REGEX
 read -r -p "How old are you? " age
 if [[ "$age" =~ ^[0-9]{1,2}$ ]]; then
@@ -134,7 +134,7 @@ fi
 
 #### define & use a function
 
-```console
+```bash
 # function without parameter
 function hello {
 	echo "hello world "
@@ -150,7 +150,7 @@ hi Lisa
 
 #### write multilined text into a file
 
-```console
+```bash
 # bash uses "heredoc" to represent mutlilined text
 
 cat > /path/to/file << EOF
