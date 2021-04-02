@@ -1,3 +1,10 @@
+#### run apt update silently
+
+```bash
+# &> /dev/null
+apt update &> /dev/null
+```
+
 #### check to see whether a program/command exist (if it exists, don't print out anything; if not, just exit)
 
 ```console
