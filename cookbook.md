@@ -7,7 +7,7 @@ apt update &> /dev/null
 
 #### check to see whether a program/command exist (if it exists, don't print out anything; if not, just exit)
 
-```console
+```bash
 if ! command -v awk &> /dev/null; then 
 	echo "awk is not installed on this computer"
 	exit 1
