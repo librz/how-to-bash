@@ -1,7 +1,10 @@
 #### run command silently(no output) 
 
 ```bash
+# simply append "&>/dev/null"
 apt update &> /dev/null
+# some commands have quite mode by design, e.g. grep's -q option
+echo "hello" | grep -q "he"
 ```
 
 #### check to see whether a program/command exist (if it exists, don't print out anything; if not, just exit)
