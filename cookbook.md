@@ -3,8 +3,10 @@
 ```bash
 # simply append "&>/dev/null"
 apt update &> /dev/null
-# some commands have quite mode by design, e.g. grep's -q option
+# some commands have slient or quite mode by design, e.g. grep's -q option
 echo "hello" | grep -q "he"
+# note curl's silent mode only hides progress meter and error message, it's not fully mute
+curl -s http://google.com
 ```
 
 #### check to see whether a program/command exist (if it exists, don't print out anything; if not, just exit)
