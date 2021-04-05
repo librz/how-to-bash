@@ -167,6 +167,7 @@ hi Lisa
 
 ```bash
 # bash uses "heredoc" to represent mutlilined text
+# below is an example, for detailed explaination, just google it
 
 cat > /path/to/file << EOF
 Hi John,
@@ -174,4 +175,18 @@ Hi John,
 	Hope all is well.
 Regards
 EOF
+```
+
+#### write multilined text into a variable
+
+```bash
+# again, use heredoc
+email=$(
+cat << EOF
+Hi John,
+	I'm only writing to check whether you have time this Sunday afternoon for a quick chat.
+	Hope all is well.
+Regards
+EOF
+)
 ```
