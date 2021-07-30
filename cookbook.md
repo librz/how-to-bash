@@ -190,3 +190,11 @@ Regards
 EOF
 )
 ```
+#### use for loop
+
+```bash
+for (( i=1; i<=10; i++ ))
+do
+	echo "Current Number: ${i}"
+donw
+```
