@@ -27,7 +27,7 @@ you can find out how to install tldr in its [github page](https://github.com/tld
 
 I use tldr because man pages are long-winded, but I still use man becuase it's more comprehensive
 
-### if you find command hard to understand, use explainshell.com
+### if you find command hard to understand, use [explainshell](explainshell.com)
 
 ```bash
 curl -sL https://google.com
