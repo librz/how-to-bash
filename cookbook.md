@@ -9,6 +9,12 @@ echo "hello" | grep -q "he"
 curl -s http://google.com
 ```
 
+#### echo the first parameter if it exist, echo hello if it doesn't
+
+```bash 
+echo "${1:-hello}"
+```
+
 #### check to see whether a program/command exist (if it exists, don't print out anything; if not, just exit)
 
 ```bash
