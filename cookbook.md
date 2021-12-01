@@ -9,7 +9,7 @@ echo "hello" | grep -q "he"
 curl -s http://google.com
 ```
 
-#### echo the first parameter if it exist, echo hello if it doesn't
+#### echo the first parameter if it exist, echo hello by default if it doesn't
 
 ```bash 
 echo "${1:-hello}"
@@ -202,5 +202,5 @@ EOF
 for (( i=1; i<=10; i++ ))
 do
 	echo "Current Number: ${i}"
-donw
+done
 ```
