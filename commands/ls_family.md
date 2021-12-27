@@ -15,7 +15,7 @@ ls -a
 ls -A
 # list items in their long form
 ls -l
-# list items in their long form, using human-readable form for file size
+# list items in their long form, with human-readable file size
 ls -lh
 ```
 
@@ -70,6 +70,8 @@ L2 cache:                        4 MiB
 L3 cache:                        16 MiB
 NUMA node0 CPU(s):               0-15
 ```
+
+note that the CPU count is 16, it doesn't mean I have 16 physical CPU on my motherboard, here the CPU refers to logical CPU, the ones that can be recognized & used by the operating system
 
 ### lsblk
 
