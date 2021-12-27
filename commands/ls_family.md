@@ -1,4 +1,4 @@
-*ls family commands are usually inside /usr/bin, you can list them using: ls -l /usr/bin/ls\**
+*ls family commands are commands starting with ls, they are usually inside /usr/bin, you can list them using: ls -l /usr/bin/ls\**
 
 ### ls 
 
