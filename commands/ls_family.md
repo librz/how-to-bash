@@ -71,7 +71,7 @@ L3 cache:                        16 MiB
 NUMA node0 CPU(s):               0-15
 ```
 
-note that the CPU count is 16, it doesn't mean I have 16 physical CPU on my motherboard, here the CPU refers to logical CPU, the ones that can be recognized & used by the operating system
+note that the CPU count is 16, it doesn't mean I have 16 physical CPU on the motherboard, here the CPU refers to logical CPU, the ones that can be recognized & used by the operating system
 
 ### lsblk
 
@@ -169,7 +169,7 @@ in this example, if you `grep -i 'logitech'` you get
 ```
 Bus 003 Device 002: ID 046d:c545 Logitech, Inc. USB Receiver
 Bus 001 Device 002: ID 046d:c08b Logitech, Inc. G502 HERO Gaming Mouse
-``
+```
 
 then we know, we have 2 logotech devices connected via usb, one is a mouse, another one is a receiver, in my case, this receiver connectes to my keyboard wirelessly.
 
