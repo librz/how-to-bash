@@ -9,7 +9,7 @@ echo "hello" | grep -q "he"
 curl -s http://google.com
 ```
 
-#### echo the first parameter if it exist, echo hello by default if it doesn't
+#### echo the first parameter if it exist, else echo hello as fallback
 
 ```bash 
 echo "${1:-hello}"
