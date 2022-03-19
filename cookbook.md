@@ -100,6 +100,13 @@ else
 fi
 ```
 
+#### string concatenation
+
+```bash
+url="https://google.com"
+addr="$url"/pathname
+```
+
 #### compare if 2 strings are the same
 
 ```bash
@@ -156,6 +163,7 @@ fi
 #### define & use a function
 
 ```bash
+
 # function without parameter
 function hello {
 	echo "hello world "
@@ -167,6 +175,8 @@ function hi {
 	echo "Hi, $1"
 }
 hi Lisa
+
+# in bash, the `function` keyword at begining is optional
 ```
 
 #### write multilined text into a file
