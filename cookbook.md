@@ -204,3 +204,12 @@ do
 	echo "Current Number: ${i}"
 done
 ```
+
+#### source all scripts under a folder
+
+```bash
+for f in ./utils/*.sh
+do
+	source "$f"
+done
+```
