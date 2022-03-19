@@ -205,7 +205,7 @@ do
 done
 ```
 
-#### source all scripts under a folder
+#### source all scripts under a folder (say ./utils)
 
 ```bash
 for f in ./utils/*.sh
