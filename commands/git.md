@@ -1,5 +1,7 @@
 ### config
 
+under `$HOME` folder, a file named .gitconfig stores global git configs
+
 - `git config --global --list`
 
 - `git config --local --list`
@@ -10,37 +12,35 @@
 
 ### init & basic inspection
 
-`git init`
+- `git --version`
 
-`git status`
+- `git init`
 
-`git remote -v`
+- `git status`
 
-`git clone git@github.com:librz/shell-scripts.git`
+- `git remote -v`
 
-`git branch -v`
+- `git clone git@github.com:librz/shell-scripts.git`
 
-`git log --oneline -n4 --graph`
+- `git branch -v`
 
-`git diff --shortstat 021b1e39`
+- `git log --oneline -n4 --graph`
 
-### history navigation
-
-`git checkout 021b1e39`
+- `git diff --shortstat 021b1e39`
 
 ### stage & commit
 
-`git add file1.js folder1`
+- stage(track) files/folders: `git add file1.js folder1`
 
-`git add .` or `git add -A`
+- stage all changes(tracked & untracked files): `git add .` or `git add -A`
 
-`git add -u`
+- stage updates to tracked files: `git add -u`
 
-`git mv add.js Add.js`
+- mv or rename file/folder: `git mv add.js Add.js`
 
-`git commit -m 'update readme'`
+- commit changes in staging area: `git commit -m 'update readme'`
 
-`git reset --hard`
+- forfeit current changes in staging area & working tree: `git reset --hard`
 
 ### sync (local <=> remote)
 
@@ -52,10 +52,14 @@
 
 ### branching
 
-`git checkout -b {{new branch name}}`
+- start a new branch based on header of current branch: `git checkout -b {{new branch name}}`
 
-`git checkout -b {{new branch name}} 021b1e39`
+- start a new branch based on commit whose commit id is 021b1e39: `git checkout -b {{new branch name}} 021b1e39`
 
-`git branch -D`
+- delete branch: `git branch -D {{branch name}}`
 
-`git merge {{another branch's name}}`
+- merge current branch with another branch: `git merge {{another branch's name}}`
+
+### history navigation
+
+- `git checkout 021b1e39`
