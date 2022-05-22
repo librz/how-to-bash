@@ -1,6 +1,6 @@
 ### config
 
-under `$HOME` folder, a file named .gitconfig stores global git configs
+under `$HOME` folder, a file named `.gitconfig` stores global git configs
 
 - `git config --global --list`
 
