@@ -1,12 +1,12 @@
 ### config
 
-`git config --global --list`
+- `git config --global --list`
 
-`git config --local --list`
+- `git config --local --list`
 
-`git config --local user.name 'rz'`
+- `git config --local user.name 'rz'`
 
-`git config --local user.email 'rz19960718@gmail.com'`
+- `git config --local user.email 'rz19960718@gmail.com'`
 
 ### init & basic inspection
 
