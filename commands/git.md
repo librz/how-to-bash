@@ -2,6 +2,8 @@
 
 under `$HOME` folder, a file named `.gitconfig` stores global git configs
 
+under current folder, a folder name `.git` stores all things related to git. inside it a file name `config` stores local git config
+
 - `git config --global --list`
 
 - `git config --local --list`
@@ -44,15 +46,17 @@ under `$HOME` folder, a file named `.gitconfig` stores global git configs
 
 ### sync (local <=> remote)
 
-`git fetch origin`
+- `git fetch origin`
 
-`git push`
+- `git push`
 
-`git pull`
+- `git pull`
 
 ### branching
 
-- start a new branch based on header of current branch: `git checkout -b {{new branch name}}`
+- start a new branch based on a certain commit: `git branch {{commit id}}`
+
+- start a new branch based on head of current branch: `git checkout -b {{new branch name}}`
 
 - start a new branch based on commit whose commit id is 021b1e39: `git checkout -b {{new branch name}} 021b1e39`
 
@@ -63,3 +67,14 @@ under `$HOME` folder, a file named `.gitconfig` stores global git configs
 ### history navigation
 
 - `git checkout 021b1e39`
+
+---
+
+### about the `.git` folder
+
+several interesting files/folders under `.git` folder
+
+- `config` file: stores all local git configs
+- `HEAD` file: shows which branch the HEAD is currently pointing at
+- `refs/heads` folder: stores latest commit of each branch
+- `objects` folder: stores objects that git relies upon under the hood (commit, tree & blob)
