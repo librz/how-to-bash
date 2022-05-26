@@ -12,6 +12,8 @@ under current folder, a folder name `.git` stores all things related to git. ins
 
 - `git config --local user.email 'rz19960718@gmail.com'`
 
+- `git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`
+
 ### init & basic inspection
 
 - `git --version`
