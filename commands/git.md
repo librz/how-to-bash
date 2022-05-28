@@ -125,3 +125,5 @@ interface Blob {
   content: Binary; // actual file content, if it's text file, you can print it out using `git cat-file -p {{blob id}}`
 }
 ```
+
+More Info: https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
