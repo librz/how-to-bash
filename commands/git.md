@@ -77,7 +77,7 @@ under current folder, a folder name `.git` stores all things related to git. ins
 several interesting files/folders under `.git` folder
 
 - `config` file: stores all local git configs
-- `HEAD` file: shows which branch the HEAD is currently pointing at (branch points to the lastest branch of that branch, so HEAD in essense is a reference to a specific commit)
+- `HEAD` file: shows which branch the HEAD is currently pointing at (branch points to the lastest commit of that branch, so HEAD in essense is a reference to a specific commit)
 - `refs/heads` folder: stores latest commit of each branch
 - `objects` folder: stores objects that git relies upon under the hood (commit, tree & blob)
 
@@ -88,8 +88,8 @@ The DS(data structure) of commit can be defined as:
 ```typescript
 interface Commit {
   id: string;
-  parent_id?: string;
-  tree_id: string;
+  parent_commit_id?: string;
+  tree_id: string; // reference to project snapshot
   timestamp: string;
   author: string;
   message: string;
@@ -114,7 +114,7 @@ interface Tree {
 }
 ```
 
-As you can see, tree by itself doesn't use a lot of space either. It has an id & reference ids of sub files & sub folders.
+As you can see, tree by itself doesn't use a lot of space either. It has an id & reference ids of files & folders under it.
 
 Finally, files are stored as blobs. It's DS can be defined as:
 
