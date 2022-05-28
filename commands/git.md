@@ -77,6 +77,50 @@ under current folder, a folder name `.git` stores all things related to git. ins
 several interesting files/folders under `.git` folder
 
 - `config` file: stores all local git configs
-- `HEAD` file: shows which branch the HEAD is currently pointing at
+- `HEAD` file: shows which branch the HEAD is currently pointing at (branch points to the lastest branch of that branch, so HEAD in essense is a reference to a specific commit)
 - `refs/heads` folder: stores latest commit of each branch
 - `objects` folder: stores objects that git relies upon under the hood (commit, tree & blob)
+
+From the user's perspective, git is a VCS(verion control system). But from the perspective of implementation, git is a file based database. Every commit has an unique hash (primary key) that corresponds to the snapshot (folder structure & file content) at the time of commit. Besides that, a commit also stores the commit id of its parent commit & things like author & commit mesage.
+
+The DS(data structure) of commit can be defined as:
+
+```typescript
+interface Commit {
+  id: string;
+  parent_id?: string;
+  tree_id: string;
+  timestamp: string;
+  author: string;
+  message: string;
+}
+```
+
+Notice, commit by itself is very small. That's because it doesn't directly store snapshot information such as folder structure & file content, it simply stores the correspond tree_id & reference the tree.
+
+Tree is a representaion of folder structure, the DS of tree can be defined as:
+
+```typescript
+interface Tree {
+  id: string;
+  // id of file content if it's located directly under "this" folder
+  blob_1_id?: string; 
+  blob_2_id?: string;
+  ...
+  // id of sub folder if it's located directly under "this" folder
+  sub_tree_1_id?: string; // exist if a sub 
+  sub_tree_2_id?: string;
+  ...
+}
+```
+
+As you can see, tree by itself doesn't use a lot of space either. It has an id & reference ids of sub files & sub folders.
+
+Finally, files are stored as blobs. It's DS can be defined as:
+
+```typescript
+interface Blob {
+  id: string;
+  content: Binary; // actual file content, if it's text file, you can print it out using `git cat-file -p {{blob id}}`
+}
+```
