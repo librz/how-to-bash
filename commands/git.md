@@ -81,7 +81,7 @@ several interesting files/folders under `.git` folder
 - `refs/heads` folder: stores latest commit of each branch
 - `objects` folder: stores objects that git relies upon under the hood (commit, tree & blob)
 
-From the user's perspective, git is a VCS(verion control system). But from the perspective of implementation, git is a file based database. Every commit has an unique hash (primary key) that corresponds to the snapshot (folder structure & file content) at the time of commit. Besides that, a commit also stores the commit id of its parent commit & things like author & commit mesage.
+From the user's perspective, git is a VCS(verion control system). But from the perspective of implementation, git is a file based database. Every commit has an unique hash (primary key) that corresponds to the snapshot (folder structure & file content) at the time of commit. Besides that, a commit also stores the id of its parent commit & things like author & commit mesage.
 
 The DS(data structure) of commit can be defined as:
 
@@ -93,6 +93,7 @@ interface Commit {
   timestamp: string;
   author: string;
   message: string;
+  ...
 }
 ```
 
