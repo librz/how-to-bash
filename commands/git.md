@@ -64,6 +64,8 @@ under current folder, a folder name `.git` stores all things related to git. ins
 
 - delete branch: `git branch -D {{branch name}}`
 
+- delete remote branch: `git push {{remote name}} --delete {{branch name}}`
+
 - merge current branch with another branch: `git merge {{another branch's name}}`
 
 ### history navigation
