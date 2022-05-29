@@ -17,6 +17,8 @@ ls -A
 ls -l
 # list items in their long form, with human-readable file size
 ls -lh
+# annotate directory with "/" in the end (this is useful when you need to tell whether it's a file or folder)
+ls -p
 ```
 
 ```sh
