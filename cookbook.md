@@ -126,6 +126,14 @@ if [[ "$age1" -eq "$age2" ]]; then
 else
 	echo "not equal"
 fi
+
+# or you could do
+
+if [[ "$age1" -ne "$age2" ]]; then
+	echo "not equal"
+else
+	echo "equal"
+fi
 ```
 
 #### string pattern matching with regex
