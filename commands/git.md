@@ -1,8 +1,12 @@
+Git is a distributed SCM(source control management) tool. It's safe, powerful, efficient but complicated. Aside from its numerous commands, one has to understand how it works internally to use it well.
+
 ### config
 
 under `$HOME` folder, a file named `.gitconfig` stores global git configs
 
-under current folder, a folder name `.git` stores all things related to git. inside it a file name `config` stores local git config
+under current folder, a folder name `.git` stores all things related to git. inside it a file named `config` stores local git config
+
+if the same item exist both in local & global git config, local config will take effect (overwriting global config)
 
 - `git config --global --list`
 
@@ -18,19 +22,19 @@ under current folder, a folder name `.git` stores all things related to git. ins
 
 - `git --version`
 
-- `git init`
+- `git init {{ foldername }}` (foldername is optional, by default it's the current directory)
 
-- `git status`
+- `git status` (status of current branch & it's relation with its remote tracking branch)
 
-- `git remote -v`
+- `git remote -v` (v for verbose mode,)
 
-- `git clone git@github.com:librz/shell-scripts.git`
+- `git clone {{ url }}` (url protocol could be ssh, git, http[s] or ftp[s]. example of url using git protocol: git@github.com:librz/shell-scripts.git)
 
-- `git branch -v`
+- `git branch -av` (without the -a flag, git will only show local branches; with the -v flag, commit id & message of each head will be printed)
 
 - `git log --oneline -n4 --graph`
 
-- `git diff --shortstat 021b1e39`
+- `git diff --shortstat 021b1e39` (the --shortstat shows only number of changed files as well as added & deleted lines)
 
 ### stage & commit
 
@@ -71,6 +75,13 @@ under current folder, a folder name `.git` stores all things related to git. ins
 ### history navigation
 
 - `git checkout 021b1e39`
+
+### rewrite history
+
+- change commit message of last commit: `git commit --amend -m "new message"` (note: this will delete the old commit & generate a new commit with a new commit id and message)
+- include more changes to last commit without updating commit message: `git commit --amend --no-edit`
+- push to remote after history is rewritten: `git push -f` (note: -f is dangerous, only do this if the commit you are rewriting is already pushed to remote branch)
+- change any message in history: `git rebase -i {{ any parent commit id before the commit you want to change }}`
 
 ---
 
