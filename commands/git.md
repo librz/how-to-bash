@@ -60,9 +60,11 @@ if the same item exist both in local & global git config, local config will take
 
 ### branching
 
+- switch branch `git checkout {{branch name}}` or `git switch {{branch name}}`
+
 - start a new branch based on a certain commit: `git branch {{commit id}}`
 
-- start a new branch based on head of current branch: `git checkout -b {{new branch name}}`
+- start a new branch based on head of current branch: `git checkout -b {{new branch name}}` or `git switch -c {{new branch name}}`
 
 - start a new branch based on commit whose commit id is 021b1e39: `git checkout -b {{new branch name}} 021b1e39`
 
