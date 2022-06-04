@@ -79,8 +79,8 @@ under current folder, a folder name `.git` stores all things related to git. ins
 several interesting files/folders under `.git` folder
 
 - `config` file: stores all local git configs
-- `HEAD` file: shows which branch the HEAD is currently pointing at (branch points to the lastest commit of that branch, so HEAD in essense is a reference to a specific commit)
-- `refs/heads` folder: stores latest commit of each branch
+- `HEAD` file: HEAD (as its name suggests) refers to the head (latest commit) of current branch you are on
+- `refs/heads` folder: stores head(latest commit) of each branch
 - `objects` folder: stores objects that git relies upon under the hood (commit, tree & blob)
 
 From the user's perspective, git is a VCS(verion control system). But from the perspective of implementation, git is a file based database. Every commit has an unique hash (primary key) that corresponds to the snapshot (folder structure & file content) at the time of commit. Besides that, a commit also stores the id of its parent commit & things like author & commit mesage.
