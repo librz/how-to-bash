@@ -60,7 +60,7 @@ if the same item exist both in local & global git config, local config will take
 
 ### branching
 
-- switch branch `git checkout {{branch name}}` or `git switch {{branch name}}`
+- switch branch `git checkout {{branch name}}` or `git switch {{branch name}}` (note: git switch is a relatively new command, available in git v2.32(release in 2019-08-16) or above)
 
 - start a new branch based on a certain commit: `git branch {{commit id}}`
 
