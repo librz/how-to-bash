@@ -82,8 +82,10 @@ if the same item exist both in local & global git config, local config will take
 
 - change commit message of last commit: `git commit --amend -m "new message"` (note: this will delete the old commit & generate a new commit with a new commit id and message)
 - include more changes to last commit without updating commit message: `git commit --amend --no-edit`
+- change any message in history: `git rebase -i {{ any parent commit id before the commit you want to change }}` then change the action for the targeted commit from `pick` to `reword`
+- squash multiple commits into one: `git rebase -i {{ any parent commit id before the commits you want to squash }}` then change the action for commits you want to squash from `pick` to `squash`
 - push to remote after history is rewritten: `git push -f` (note: -f is dangerous especially when there are other team members who work on the same branch, only do this if the commit you are rewriting is already pushed to remote branch)
-- change any message in history: `git rebase -i {{ any parent commit id before the commit you want to change }}`
+
 
 ---
 
