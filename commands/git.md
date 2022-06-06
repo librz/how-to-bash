@@ -1,4 +1,8 @@
-Git is a distributed SCM(source control management) tool. It's safe, flexible, efficient but complicated. Aside from its numerous commands, one has to understand how it works internally to use it well. 
+Git is a distributed SCM(source control management) tool. It's safe, flexible, efficient but complicated. Aside from its numerous commands, one has to understand how it works internally to use it well.
+
+Suppose you go through all the hurdles to try to understand its internals (you know git is a content-addressable file system, it uses SHA-1, it's model for storage is linkage between commit -> tree -> blob), you still have to learn how to use it's command line interface which can be daunting to look at. Never the less we have to use it just because it's popular.
+
+Even though git's model for storage is quite simple (commit -> tree -> blob), it's commands & subcommands are daunting to look at. Even if you 
 
 ### config
 
@@ -18,23 +22,31 @@ if the same item exist both in local & global git config, local config will take
 
 - `git config --local http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`
 
+### init
+
+- `git init {{ foldername }}` (foldername is optional, by default it's the current directory)
+
+- `git clone {{ url }}` (url protocol could be ssh, git, http[s] or ftp[s]. example of url using git protocol: `git@github.com:librz/shell-scripts.git`)
+
 ### init & basic inspection
 
 - `git --version`
-
-- `git init {{ foldername }}` (foldername is optional, by default it's the current directory)
 
 - `git status` (status of current branch & it's relation with its remote tracking branch)
 
 - `git remote -v` (v for verbose mode,)
 
-- `git clone {{ url }}` (url protocol could be ssh, git, http[s] or ftp[s]. example of url using git protocol: git@github.com:librz/shell-scripts.git)
-
 - `git branch -av` (without the -a flag, git will only show local branches; with the -v flag, commit id & message of each head will be printed)
 
-- `git log --oneline -n4 --graph`
+- `git log --oneline -n10 --decorate --graph`
 
-- `git diff --shortstat 021b1e39` (the --shortstat shows only number of changed files as well as added & deleted lines)
+- `git diff` by default, git diff without any option or parameter shows diff between working tree & HEAD
+
+- `git diff --cached` show diff between staging area & HEAD
+
+- `git diff --shortstat {{commit id}}` (the --shortstat shows only number of changed files as well as added & deleted lines)
+
+- `git show-ref --heads` print all 
 
 ### stage & commit
 
@@ -48,21 +60,25 @@ if the same item exist both in local & global git config, local config will take
 
 - commit changes in staging area: `git commit -m 'update readme'`
 
-- forfeit current changes in staging area & working tree: `git reset --hard`
+- unstage all changes (moving changes from staging area to working tree): `git reset HEAD` or `git restore --staged .` (note git restore is only available after v2.23)
+
+- discard all changes in working tree: `git checkout -- .` or `git restore .` (note git restore is only available after v2.23)
 
 ### sync (local <=> remote)
 
-- `git fetch origin`
+- `git fetch {{remote name}}`
 
-- `git push`
+- `git fetch --prune {{remote name}}` Without `--prune `, remote-tracking branches will stay forever on local cache even some of them may have been removed
 
-- `git pull`
+- `git push {{remote name}}`
+
+- `git push -f {{remote name}}` force push to remote branch, this is DANGEROUS
+
+- `git pull {{remote name}}`
 
 ### branching
 
 - switch branch `git checkout {{branch name}}` or `git switch {{branch name}}` (note: git switch is a relatively new command, available in git v2.32(release in 2019-08-16) or above)
-
-- start a new branch based on a certain commit: `git branch {{commit id}}`
 
 - start a new branch based on head of current branch: `git checkout -b {{new branch name}}` or `git switch -c {{new branch name}}`
 
@@ -84,8 +100,8 @@ if the same item exist both in local & global git config, local config will take
 - include more changes to last commit without updating commit message: `git commit --amend --no-edit`
 - change any message in history: `git rebase -i {{ any parent commit id before the commit you want to change }}` then change the action for the targeted commit from `pick` to `reword`
 - squash multiple commits into one: `git rebase -i {{ any parent commit id before the commits you want to squash }}` then change the action for commits you want to squash from `pick` to `squash` (note you should pick the oldest commit among the commits you want to squash to serve as the destination for squash)
+- delete commits until a certain commit: `git reset --hard {{commit id}}`
 - push to remote branch after history is rewritten: `git push -f` (note: -f is dangerous especially when there are other team members who work on the same branch, only do this if the commit you are rewriting is already pushed to remote branch & no other team member is working on that remote branch)
-
 
 ---
 
@@ -134,7 +150,7 @@ interface Tree {
 
 As you can see, tree by itself doesn't use a lot of space either. It has an id & reference ids of files & folders under it.
 
-Finally, files are stored as blobs. It's DS can be defined as:
+Finally, files are stored as blobs. It's stucture can be defined as:
 
 ```typescript
 interface Blob {
@@ -144,3 +160,9 @@ interface Blob {
 ```
 
 More Info: https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
+
+### thinking
+
+- What's the point of staging area? Why not commit changes in working tree directly?
+
+Fine grained control. Suppose you made a lot of changes in working tree & only want to commit some of changes (maybe because the rest changes are experimental & not ready for commit), you can stage only the changes you want to commit & then commit them.
