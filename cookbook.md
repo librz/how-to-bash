@@ -136,6 +136,19 @@ else
 fi
 ```
 
+### number increment
+
+```bash
+COUNT=0
+
+while [[ "$COUNT" -lt 10 ]]
+do
+	((COUNT=COUNT+3))
+done
+
+echo "$COUNT"
+```
+
 #### string pattern matching with regex
 
 ```bash
