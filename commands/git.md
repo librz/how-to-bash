@@ -90,6 +90,8 @@ if the same item exist both in local & global git config, local config will take
 
 - merge current branch with another branch: `git merge {{another branch's name}}`
 
+- merge current branch with remote branch: `git merge {remote_name}/{branch_name}`
+
 ### history navigation
 
 - `git checkout 021b1e39`
