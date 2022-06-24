@@ -70,7 +70,7 @@ if the same item exist both in local & global git config, local config will take
 
 - `git push {{remote name}}`
 
-- `git push -f {{remote name}}` force push to remote branch, this is DANGEROUS
+- `git push -f {{remote name}}` force push to remote branch, this is DANGEROUS (never force push to a shared branch)
 
 - `git pull {{remote name}}`
 
