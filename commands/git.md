@@ -100,8 +100,8 @@ if the same item exist both in local & global git config, local config will take
 - include more changes to last commit without updating commit message: `git commit --amend --no-edit`
 - change any message in history: `git rebase -i {{ any parent commit id before the commit you want to change }}` then change the action for the targeted commit from `pick` to `reword`
 - squash multiple commits into one: `git rebase -i {{ any parent commit id before the commits you want to squash }}` then change the action for commits you want to squash from `pick` to `squash` (note you should pick the oldest commit among the commits you want to squash to serve as the destination for squash) (note you can reorder commits when rebasing but it can cause conflict, only do it when you are very confident of what you are doing)
-- delete commits until a certain commit: `git reset --hard {{commit id}}`, you can also do `git reset --hard HEAD~{{count}}` (`count` is the number of commits you'd like to delete)
-- delete commits but keep the changes in working directory: `git reset --soft {{commit id}}` or `git reset --soft HEAD~{{count}}`
+- delete commits until a certain commit(dangerous): `git reset --hard {{commit id}}`, you can also do `git reset --hard HEAD~{{count}}` (`count` is the number of commits you'd like to delete)
+- delete commits but keep the changes in working directory: `git reset --soft {{commit id}}` or `git reset --soft HEAD~{{count}}` (I think you can emit the `--soft` as it's default behavior)
 - push to remote branch after history is rewritten: `git push -f` (note: -f is dangerous especially when there are other team members who work on the same branch, only do this if the commit you are rewriting is already pushed to remote branch & no other team member is working on that remote branch)
 
 ---
