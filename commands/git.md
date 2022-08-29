@@ -44,6 +44,10 @@ if the same item exist both in local & global git config, local config will take
 
 - `git diff --shortstat {{commit id}}` (the --shortstat shows only number of changed files as well as added & deleted lines)
 
+- `git diff b77bfd22 e67337d4` diff between commit `b77bfd22` and `e67337d4`
+
+- `git diff e67337d4 e67337d4~` diff between commit `e67337d4` and it's parent commit (`~` sign means parent)
+
 - `git show-ref --heads` print all 
 
 ### stage & commit
