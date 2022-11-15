@@ -94,6 +94,8 @@ if the same item exist both in local & global git config, local config will take
 
 - merge current branch with remote branch: `git merge {remote_name}/{branch_name}`
 
+- rename current branch: `git branch -m {new name}`; to push local branch & reset remote branch: `git push origin -u {new name}`;
+
 ### history navigation
 
 - `git checkout 021b1e39`
