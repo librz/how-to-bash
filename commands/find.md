@@ -17,7 +17,7 @@
 
 - `find . -maxdepth 2 -name '*.js'` limit maxdepth to 2
 - `find . -type f -name '*js*'` find files that contian `js` (`f` for file; `d` for directory)
-- `find . -type f -size 2k` find files whose size >= 2KB (`2k` means `>=2KB`; `+2k` means >2KB; `-2k` means <2KB. Other than `k` you can also specify `k`, `M`, `G` to mean KB, MB, GB respectively.)
+- `find . -type f -size 2k` find files whose size >= 2KB (`2k` means `>=2KB`; `+2k` means >2KB; `-2k` means <2KB. Other than `k` you can also specify `M`, `G` to mean MB, GB respectively.)
 
 
 ### and & or
