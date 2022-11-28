@@ -23,9 +23,17 @@
 - `find ./src \( -name '*.ts' -or -name '*.js' \)`
 - `find ./src \( -name '*config*' -and -type f \)`
 
+### delete found files
+
+- `find ~/Desktop -type f -name '*Screen Recording*' -size -10M -delete` find & remove all files whose name contains `Screen Recording` & is less than 10MB under `~/Desktop`
+
 ### combine with other commands (`--exec`)
 
 note: `find` uses `{}` to represent filenames in the `-exec` clause
 
 - `find ~/Desktop -type f -size +10M -exec ls -lh {} \;` find files that are larger than 10MB in `~/Desktop`, list them using `ls -lh`
 - `mkdir small_files && find ~/Desktop -type f -size -1M -exec copy {} small_files \;`
+
+### exclude directory using `-path {dir_name} -prune`
+
+- `find . -path ./node_modules -prune -o -name '*.js'` find all JavaScript files under current folder excluding `./node_modules`; the `-o` means `or` & serves as a short circuit (when the 1st expression is true, the following won't be evaluated)
