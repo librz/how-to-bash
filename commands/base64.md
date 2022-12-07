@@ -20,7 +20,7 @@ base64 --input=avatar.png
 base64 --decode --input=[base64string] > avatar.png
 ```
 
-#### why a string representation of files are import
+#### file embedding
 
 For example, instead of referencing a remote url, you can embed image directly in html as string using data url. 
 
@@ -34,12 +34,17 @@ This guarantees the embedded image show up immedately after the html file is loa
 
 There are many ways you can stringify a file
 
-Since all files are stored in computer as binary, using binary string is obvious a possible solution.
+Since all files are stored in computer as binary, using binary string is obviously a possible solution. However, binary string is often too long as it's base2. How about hex? Well, hex is base16, although much shorter than binary string, still not ideal.
 
-But it has a caveat, using binary, every bit requires a corresponding '0' or '1', resulting a long-winded string.
+In a base64 string, every character represents 64 bits of data. It uses the following character sets:
 
-Using hex condenses every 4 bit(four '0's & '1's) to 1 char, dramatically reduces the length of generated string.
+- A-Z
+- a-z
+- `+` sign and `/` sign
+- `=` sign is used for padding
 
-But still it's not concise enough, duplication remains.
+As you can see, all chacacters used by base64 is universal hence safe in all computing systems. Going for a higher base, such as base128 will generate shorter string in theory, but it needs include 128 characters, thus cannot guarantee the ubiquity & safety of its character set.
 
-Base64 analyses input & optimize for less duplication, resulting in a relative short string compared to binary or hex.
+Aside from having a large base, base64 also analyses input & optimize for less duplication, resulting in an even shorter string.
+
+reference: https://medium.com/swlh/powering-the-internet-with-base64-d823ec5df747
