@@ -1,29 +1,31 @@
-### the first line of your script should alwyas be shabang:
+### the first line of your script should alwyas be shabang
 
 ```bash
 #!/bin/bash
 ```
 
-the #! is called shabang
+`#!` is called shabang
 
 it should be literally the FIRST line, top of your script file. If you put it in second line and leave the first line empty, it won't work
 
-### alwyas check bash script using shellcheck before running it:
+### alwyas check bash script using `shellcheck` before running it
+
+shellcheck is a reliable static analyzer for shell scripts, it detects potential issues within your script & produce warnings.
 
 ```bash
 shellcheck /path/to/script
 ```
 
-you can find out how to install shellcheck in its [github page](https://github.com/koalaman/shellcheck)
+[install shellcheck](https://github.com/koalaman/shellcheck)
 
-### use tldr to list the most common usage of a command
+### use tldr to list the most common usages of a command
 
 ```bash
 # find out how to use tar
 tldr tar
 ```
 
-you can find out how to install tldr in its [github page](https://github.com/tldr-pages/tldr)
+[install tldr](https://github.com/tldr-pages/tldr)
 
 I use tldr because man pages are long-winded, but I still use man becuase it's more comprehensive
 
