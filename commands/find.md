@@ -2,8 +2,8 @@
 
 `find` is an old tool in that:
 
-- `find` uses single dash instead of double dash (such as `-name` instead of `--name`)
-- `find` doesn't suport `{option}={value}` (such as `-maxdepth=2` is not suported)
+- it uses single dash instead of double dash (such as `-name` instead of `--name`)
+- it doesn't suport `{option}={value}` notation (such as `-maxdepth=2` is not supported)
 
 ### find by name
 
