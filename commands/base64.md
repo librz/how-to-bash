@@ -34,16 +34,16 @@ This guarantees the embedded image show up immedately after the html file is loa
 
 There are many ways you can stringify a file
 
-Since all files are stored in computer as binary, using binary string is obviously a possible solution. However, binary string is often too long as it's base2. How about hex? Well, hex is base16, although much shorter than binary string, still not ideal.
+Since all files are stored in computer as binary, using binary string is obviously a possible solution. However, binary string is often too long as it's base2. How about hex? Well, hex is base16, every character represents 4 bits of data, still not ideal.
 
-In a base64 string, every character represents 64 bits of data. It uses the following character sets:
+In a base64 string, every character represents 6 bits of data (2^6 = 64). It uses the following character sets:
 
 - A-Z
 - a-z
 - `+` sign and `/` sign
 - `=` sign is used for padding
 
-As you can see, all chacacters used by base64 is universal hence safe in all computing systems. Going for a higher base, such as base128 will generate shorter string in theory, but it needs include 128 characters, thus cannot guarantee the ubiquity & safety of its character set.
+As you can see, all chacacters used by base64 is universal hence safe in all computing systems. Going for a higher base, such as base128 will generate shorter string in theory, but it needs 128 characters, thus cannot guarantee the ubiquity & safety of its character set.
 
 Aside from having a large base, base64 also analyses input & optimize for less duplication, resulting in an even shorter string.
 
