@@ -3,14 +3,14 @@
 `find` is an old tool in that:
 
 - `find` uses single dash instead of double dash (such as `-name` instead of `--name`)
-- `find` doesn't suport `a=b` (such as `-maxdepth=2` is not suported)
+- `find` doesn't suport `{option}={value}` (such as `-maxdepth=2` is not suported)
 
 ### find by name
 
-- `find ~ -name '.zshrc'` find by exact name of file/folder
-- `find /var/www -name '*.html'` find items whose name ends with `html`
-- `find . ! -name '*.txt'` find items whose name doesn't ends with `.txt`
-- `find . -iname '*react*'` find items whose name contains `react`, case-insensitive
+- `find ~ -name '.zshrc'` find by exact name of file/folder in home directory
+- `find /var/www -name '*.html'` find items whose name ends with `html` in `/var/www`
+- `find . ! -name '*.txt'` find items whose name doesn't ends with `.txt` in current directory
+- `find . -iname '*react*'` find items whose name contains `react` (case-insensitive) in current directory
 
 ### specify `maxdepth`, `type`, `size`
 
