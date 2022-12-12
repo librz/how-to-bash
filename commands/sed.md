@@ -26,7 +26,7 @@ echo "some believes in religion, some believes in science, while some believes i
 sed 's/some|we/g' test.txt
 ```
 
-fiel as input (change file in place)
+fiel as input (change file in place, `-i` option)
 
 ```sh
 echo "some believes in religion, some believes in science, while some believes in instinct" > test.txt
