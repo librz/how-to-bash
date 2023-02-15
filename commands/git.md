@@ -78,6 +78,8 @@ if the same item exist both in local & global git config, local config will take
 
 - `git pull {{remote name}}`
 
+sometimes, when you do `git status` or `git pull`, git tells you `your local branch has diverged with remote`, usually it means the `HEAD` of your local barnch & remote branch is different (having different commit ids). If you want to forfeit your local `HEAD`, you could just do `git reset --hard origin/master`. [More details](https://stackoverflow.com/questions/2452226/master-branch-and-origin-master-have-diverged-how-to-undiverge-branches)
+
 ### branching
 
 - switch branch `git checkout {{branch name}}` or `git switch {{branch name}}` (note: git switch is a relatively new command, available in git v2.32(release in 2019-08-16) or above)
