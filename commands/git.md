@@ -116,6 +116,8 @@ sometimes, when you do `git status` or `git pull`, git tells you `your local bra
 
 ### about the `.git` folder
 
+the `.git` folder is the databse of git, if you do `rm -rf .git`, all trakcing done by git will be lost. This is how you can `uninit` a git repo.
+
 several interesting files/folders under `.git` folder
 
 - `config` file: stores all local git configs
