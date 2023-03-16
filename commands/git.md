@@ -4,7 +4,21 @@ Suppose you go through all the hurdles to try to understand its internals (you k
 
 ### config
 
-under `$HOME` folder, a file named `.gitconfig` stores global git configs
+under `$HOME` folder, a file named `.gitconfig` stores global git configs, here's an example:
+
+```git
+[user]
+	name = librz
+	email = rz19960718@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	# force git to be case sensitive (which it by default is not under macOS)
+	ignoreCase = false
+[alias]
+	fo = fetch origin
+	fu = fetch upstream
+```
 
 under current folder, a folder name `.git` stores all things related to git. inside it a file named `config` stores local git config
 
@@ -68,35 +82,39 @@ if the same item exist both in local & global git config, local config will take
 
 ### sync (local <=> remote)
 
-- `git fetch {{remote name}}`
+- `git fetch {remote}` fetch status of all branches from remote
+
+- `git fetch {remote} {branch}` fetch status of specified branch from remote
 
 - `git fetch --prune {{remote name}}` Without `--prune `, remote-tracking branches will stay forever on local cache even some of them may have been removed
 
-- `git push {{remote name}}`
+- `git push` push to remote branch (already setup a remote branch)
 
-- `git push -f {{remote name}}` force push to remote branch, this is DANGEROUS (never force push to a shared branch)
+- `git push -u {remote} {branch}` set upstream branch & push to it
 
-- `git pull {{remote name}}`
+- `git push -f {remote} {branch}` force push to remote branch, this is DANGEROUS (never force push to a shared branch)
 
-sometimes, when you do `git status` or `git pull`, git tells you `your local branch has diverged with remote`, usually it means the `HEAD` of your local barnch & remote branch is different (having different commit ids). If you want to forfeit your local `HEAD`, you could just do `git reset --hard origin/master`. [More details](https://stackoverflow.com/questions/2452226/master-branch-and-origin-master-have-diverged-how-to-undiverge-branches)
+- `git pull` pull changes from remote branch
+
+sometimes, when you do `git status` or `git pull`, git tells you `your local branch has diverged with remote`, usually it means the `HEAD` of your local barnch & remote branch is different (having different commit IDs). If you want to forfeit your local `HEAD`, you could just do `git reset --hard {remote}/{branch}`. [More details](https://stackoverflow.com/questions/2452226/master-branch-and-origin-master-have-diverged-how-to-undiverge-branches)
 
 ### branching
 
-- switch branch `git checkout {{branch name}}` or `git switch {{branch name}}` (note: git switch is a relatively new command, available in git v2.32(release in 2019-08-16) or above)
+- switch branch `git checkout {branch}` or `git switch {branch}` (note: git switch is a relatively new command, available in git v2.32(release in 2019-08-16) or above)
 
-- start a new branch based on head of current branch: `git checkout -b {{new branch name}}` or `git switch -c {{new branch name}}`
+- start a new branch based on head of current branch: `git checkout -b {branch}` or `git switch -c {branch}`
 
-- start a new branch based on commit whose commit id is 021b1e39: `git checkout -b {{new branch name}} 021b1e39`
+- start a new branch based on commit whose commit id is 021b1e39: `git checkout -b {branch} 021b1e39`
 
-- delete branch: `git branch -D {{branch name}}`
+- delete local branch: `git branch -D {branch}`
 
-- delete remote branch: `git push {{remote name}} --delete {{branch name}}`
+- delete remote branch: `git push {remote} --delete {branch}`
 
-- merge current branch with another branch: `git merge {{another branch's name}}`
+- merge current branch with another local branch: `git merge {branch}`
 
-- merge current branch with remote branch: `git merge {remote_name}/{branch_name}`
+- merge current branch with remote branch: `git merge {remote}/{branch}`
 
-- rename current branch: `git branch -m {new name}`; to push local branch & reset remote branch: `git push origin -u {new name}`;
+- rename current branch: `git branch -m {new name}`
 
 ### history navigation
 
