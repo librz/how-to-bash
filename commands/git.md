@@ -130,6 +130,12 @@ sometimes, when you do `git status` or `git pull`, git tells you `your local bra
 - delete commits but keep the changes in working directory: `git reset --soft {{commit id}}` or `git reset --soft HEAD~{{count}}` (I think you can emit the `--soft` as it's default behavior)
 - push to remote branch after history is rewritten: `git push -f` (note: -f is dangerous especially when there are other team members who work on the same branch, only do this if the commit you are rewriting is already pushed to remote branch & no other team member is working on that remote branch)
 
+## miscellaneous
+
+- list all files tracked by git: `git ls-tree --full-tree --name-only -r {commit}`
+- tell git to stop traking file: `git rm --cached {file}`
+- tell git to stop tracking folder & files under it: `git rm -r --cached {folder}`
+
 ---
 
 ### about the `.git` folder
