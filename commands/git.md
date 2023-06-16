@@ -130,7 +130,22 @@ sometimes, when you do `git status` or `git pull`, git tells you `your local bra
 - delete commits but keep the changes in working directory: `git reset --soft {{commit id}}` or `git reset --soft HEAD~{{count}}` (I think you can emit the `--soft` as it's default behavior)
 - push to remote branch after history is rewritten: `git push -f` (note: -f is dangerous especially when there are other team members who work on the same branch, only do this if the commit you are rewriting is already pushed to remote branch & no other team member is working on that remote branch)
 
-## miscellaneous
+### stash
+
+stash changes that are not ready for commit & you may need to come back to it later
+
+git stashes are orgnized as a stack
+
+- stash changes(tracked files only): `git stash`
+- stash changes in tracked files & give it a message: `git stash push -m "to be continue: feature blabla"`
+- stash changes(including untracked files): `git stash -u` or `git stash --include-untracked`
+- list all stashes: `git stash list`
+- apply latest stash: `git stash pop` or `git stash apply`
+- apply/drop specific stash: `git stash apply/drop stash@{index}`
+- drop all stashes: `git stash clear`
+- show changes in a stash: `git stash show stash@{index}`
+
+### miscellaneous
 
 - list all files tracked by git: `git ls-tree --full-tree --name-only -r {commit}`
 - tell git to stop traking file: `git rm --cached {file}`
