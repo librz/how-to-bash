@@ -118,7 +118,7 @@ sometimes, when you do `git status` or `git pull`, git tells you `your local bra
 
 - start a new branch based on head of remote branch: `git checkout -b {branch} {remote}/{branch}`
 
-- start a new branch based on head of remote branch but do not track the remote branch `git checkout -b {branch} --no-track {remote}/{branch}` (this can be useful when you want to checkout a branch from the official branch but do not want or simply don't have the access to push directly to it, instead you want to push to a forked repo and then raise a PR to merge into the official repo's branch)
+- start a new branch based on head of remote branch but do not track the remote branch `git checkout -b {branch} --no-track {remote}/{branch}` (this can be useful when you want to checkout a branch from the official branch but do not want or simply don't have the access to push directly to it, instead you want to push to a forked repo and then raise a PR to merge into the official repo's branch. Often times, you need to run `git fetch {remote}` first to get the latest status of remote branches)
 
 ### history navigation
 
