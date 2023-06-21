@@ -1,4 +1,4 @@
-Git is a distributed SCM(source control management) tool. It's safe, flexible, efficient but complicated. Aside from its numerous commands, one has to understand how it works internally to use it well.
+Git is a distributed SCM(source control management) tool. It's safe, flexible, efficient but complicated. Aside from its numerous commands, sometimes you has to understand how it works internally to use it well :(
 
 Suppose you go through all the hurdles to try to understand its internals (you know git is a content-addressable file system, it uses SHA-1, it's model for storage is linkage between commit -> tree -> blob), you still have to learn how to use it's command line interface which can be daunting to look at. Never the less we have to use it just because it's popular.
 
@@ -8,8 +8,8 @@ under `$HOME` folder, a file named `.gitconfig` stores global git configs, here'
 
 ```git
 [user]
-	name = librz
-	email = rz19960718@gmail.com
+	name = john
+	email = john1996@gmail.com
 [init]
 	defaultBranch = main
 [core]
@@ -28,9 +28,9 @@ if the same item exist both in local & global git config, local config will take
 
 - `git config --local --list`
 
-- `git config --local user.name 'rz'`
+- `git config --local user.name 'john'`
 
-- `git config --local user.email 'rz19960718@gmail.com'`
+- `git config --local user.email 'john2000@gmail.com'`
 
 - `git config --local http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port`
 
@@ -86,9 +86,9 @@ if the same item exist both in local & global git config, local config will take
 
 - `git fetch {remote} {branch}` fetch status of specified branch from remote
 
-- `git fetch --prune {{remote name}}` Without `--prune `, remote-tracking branches will stay forever on local cache even some of them may have been removed
+- `git fetch --prune {{remote name}}` Without `--prune `, remote-tracking branches will stay forever on local cache even some of them may have been removed on remote
 
-- `git push` push to remote branch (already setup a remote branch)
+- `git push` push to remote branch (suppose you already specified a remote branch before)
 
 - `git push -u {remote} {branch}` set upstream branch & push to it
 
@@ -115,6 +115,10 @@ sometimes, when you do `git status` or `git pull`, git tells you `your local bra
 - merge current branch with remote branch: `git merge {remote}/{branch}`
 
 - rename current branch: `git branch -m {new name}`
+
+- start a new branch based on head of remote branch: `git checkout -b {branch} {remote}/{branch}`
+
+- start a new branch based on head of remote branch but do not track the remote branch `git checkout -b {branch} --no-track {remote}/{branch}` (this can be useful when you want to checkout a branch from the official branch but do not want or simply don't have the access to push directly to it, instead you want to push to a forked repo and then raise a PR to merge into the official repo's branch)
 
 ### history navigation
 
