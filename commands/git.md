@@ -125,6 +125,7 @@ sometimes, when you do `git status` or `git pull`, git tells you `your local bra
 - inspect: `git remote -v`
 - add: `git remote add {remote_name} {url}`
 - remove: `git remote remove {remote_name}`
+- change url: `git remote set-url {remote_name} {url}`
 
 ### history navigation
 
