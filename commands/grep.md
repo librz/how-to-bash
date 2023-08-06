@@ -12,9 +12,12 @@ cat package.json | grep "scripts"
 grep -i "scripts" package.json
 
 # print 3 lines of context around each match
-grep --content=3 "scripts" package.json
-# print 5 lines of context before each match
+grep --context=3 "scripts" package.json
+# before context
 grep --before-content=5 "scripts" package.json
-# print 2 lines of context after each match
+# after context
 grep --after-content=5 "scripts" package.json
+
+# --context=n can be also written as -Cn
+# likewise --before-context=n -> -Bn; --after-context=n -> -An
 ```
