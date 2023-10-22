@@ -162,7 +162,7 @@ git stashes are orgnized as a stack
 - delete tag: `git tag -d {tag_name}`
 - create a simple tag: `git tag {tag_name}`
 - create an annotated tag: `git tag -a {tag_name} -m {message}`
-- push tag to remote: `git push {branch_name} {tag_name}`
+- push tag to remote: `git push {remote_name} {tag_name}`
 
 ### miscellaneous
 
