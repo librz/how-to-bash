@@ -5,21 +5,24 @@
 `tar` has several options and u can combine them together, namely:
 
 1. `c` for create
-2. `g` for gzip
+2. `z` for gzip
 3. `x` for extract(unarchive)
 4. `t` for list
 5. `f` for file, seems to be always needed
+6. `--exclude`
 
-### list contents of an archive
+#### list contents of an archive
 
 `tar tf path/to/archvie`
 
-### archive
+#### archive
 
 1. create an archive file from several files: `tar -cf path/to/target.tar path/to/file1 path/to/file2 ...`
-2. create a gzipped archive file: `tar -cgf path/to/target.tar path/to/file1 path/to/file2 ...`
-3. create an archive file of an directory: `tar -cf path/to/target path/of/archive`
-### extract (unarchive)
+2. create a gzipped archive file: `tar -czf path/to/target.tar.gz path/to/file1 path/to/file2 ...`
+3. create an archive file of an directory: `tar -cf path/to/target.tar path/to/target`
+4. create an archive file of an dir but excluding certain folders/files: `tar --exlcude="path/to/folder_or_file/1" --exclude="path/to/folder_or_file/2" -cf path/to/target.tar path/to/target`
+
+#### extract (unarchive)
 
 `tar -xf path/to/archive -C path/of/extracted_files`
 
