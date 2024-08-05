@@ -9,7 +9,7 @@
 3. `x` for extract(unarchive)
 4. `t` for list
 5. `f` for file, seems to be always needed
-6. `--exclude`
+6. `--exclude`: exclude certain file/folder(s)
 
 #### list contents of an archive
 
