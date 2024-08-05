@@ -26,4 +26,7 @@
 
 `tar -xf path/to/archive -C path/of/extracted_files`
 
-in case of tar bomb where a tar file directly contains a lot of file, it's recommendated to create a temp folder first, then put the extracted files in it
+in case of tar bomb where a tar file directly contains a lot of file, u can:
+
+1. inspect by using `tar -tf`
+2. create a temp folder first, then put the extracted files in it
