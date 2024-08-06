@@ -1,4 +1,7 @@
-base64 is a neat command for enocding to & decoding from base64 string
+`base64` can do 2 things:
+
+1. encode binary format to base64 string
+2. decode base64 string to binary format
 
 #### syntax
 
