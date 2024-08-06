@@ -50,4 +50,8 @@ As you can see, all chacacters used by base64 is universal hence safe in all com
 
 Aside from having a large base, base64 also analyses input & optimize for less duplication, resulting in an even shorter string.
 
-reference: https://medium.com/swlh/powering-the-internet-with-base64-d823ec5df747
+reference: 
+
+1. [medium post](https://medium.com/swlh/powering-the-internet-with-base64-d823ec5df747)
+2. [base64](https://en.wikipedia.org/wiki/Base64)
+
