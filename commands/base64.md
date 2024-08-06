@@ -53,5 +53,5 @@ Aside from having a large base, base64 also analyses input & optimize for less d
 reference: 
 
 1. [medium post](https://medium.com/swlh/powering-the-internet-with-base64-d823ec5df747)
-2. [base64](https://en.wikipedia.org/wiki/Base64)
+2. [wikipedia: base64](https://en.wikipedia.org/wiki/Base64)
 
