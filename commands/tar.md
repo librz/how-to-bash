@@ -11,6 +11,7 @@
 5. `f` for file, seems to be always needed
 6. `--exclude`: exclude certain file/folder(s)
 7. `--exclude-from`: exclude filer/folder(s) from patterns list in file
+8. `--directory`: put extracted files into directory
 
 #### list contents of an archive
 
@@ -31,4 +32,4 @@
 in case of tar bomb where a tar file directly contains a lot of file, u can:
 
 1. inspect by using `tar -tf`
-2. create a temp folder first, then put the extracted files in it
+2. create a temp folder first, then put the extracted files in it: `mkdir container | tar -xf --directory container`
