@@ -10,10 +10,11 @@
 4. `t` for list
 5. `f` for file, seems to be always needed
 6. `--exclude`: exclude certain file/folder(s)
+7. `--exclude-from`: exclude filer/folder(s) from patterns list in file
 
 #### list contents of an archive
 
-`tar tf path/to/archvie`
+`tar -tf path/to/archvie`
 
 #### archive
 
@@ -21,6 +22,7 @@
 2. create a gzipped archive file: `tar -czf path/to/target.tar.gz path/to/file1 path/to/file2 ...`
 3. create an archive file of an directory: `tar -cf path/to/target.tar path/to/target`
 4. create an archive file of an dir but excluding certain folders/files: `tar --exlcude="path/to/folder_or_file/1" --exclude="path/to/folder_or_file/2" -cf path/to/target.tar path/to/target`
+5. create an archive file of an dir but exlcuding file/folder(s) list in .gitignore: `tar --exclude-from='.gitignore' -cf path/to/target.tar path/to/target`
 
 #### extract (unarchive)
 
