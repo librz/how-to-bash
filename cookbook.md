@@ -261,9 +261,9 @@ if ! cd "$PARENT_DIR_PATH"; then
 	exit 1
 fi
 
-if ! tar --exclude='node_modules' --exclude='dist' -czf "$CUR_DIR_NAME".tar.gz "$CUR_DIR_NAME"; then
-    echo "failed to create archive file"
-    exit 2
+if ! tar --exclude-from='.gitignore' -czf "$CUR_DIR_NAME".tar.gz "$CUR_DIR_NAME"; then
+	echo "failed to create archive file"
+	exit 2
 fi
 
 echo "archive file created: $PARENT_DIR_PATH/$CUR_DIR_NAME.tar.gz"
