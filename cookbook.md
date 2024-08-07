@@ -261,7 +261,9 @@ if ! cd "$PARENT_DIR_PATH"; then
 	exit 1
 fi
 
-if ! tar --exclude-from='.gitignore' -czf "$CUR_DIR_NAME".tar.gz "$CUR_DIR_NAME"; then
+GIT_IGNORE_PATH="$CUR_DIR_PATH/.gitignore"
+
+if ! tar --exclude-from="$GIT_IGNORE_PATH" -czf "$CUR_DIR_NAME".tar.gz "$CUR_DIR_NAME"; then
 	echo "failed to create archive file"
 	exit 2
 fi
