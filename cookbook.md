@@ -244,3 +244,27 @@ do
 	source "$f"
 done
 ```
+
+#### archive & compress a directory
+
+```bash
+#!/bin/bash
+CUR_DIR_PATH="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+# echo "current dir path $CUR_DIR_PATH"
+PARENT_DIR_PATH="$(dirname "$CUR_DIR_PATH")";
+# echo "parent dir path $PARENT_DIR_PATH"
+CUR_DIR_NAME="$(basename "$CUR_DIR_PATH")"
+# echo "current dir name $CUR_DIR_NAME"
+
+if ! cd "$PARENT_DIR_PATH"; then
+	echo "failed to enter parent dir $PARENT_DIR_PATH"
+	exit 1
+fi
+
+if ! tar --exclude='node_modules' --exclude='dist' -czf "$CUR_DIR_NAME".tar.gz "$CUR_DIR_NAME"; then
+    echo "failed to create archive file"
+    exit 2
+fi
+
+echo "archive file created: $PARENT_DIR_PATH/$CUR_DIR_NAME.tar.gz"
+```
